@@ -1,5 +1,4 @@
 import { API_AUTH_LOGIN } from "../constants";
-// import { getKey } from "./key";
 
 export async function login({ email, password }) {
     const body = JSON.stringify({
