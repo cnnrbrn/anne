@@ -17,8 +17,8 @@ export async function login({ email, password }) {
 
         if (response.ok) {
             const {data: {accessToken}} = await response.json();
-            localStorage.setItem('accessToken: ', accessToken);
-            // window.location.href = '/';
+            localStorage.setItem('accessToken', accessToken);
+            window.location.href = '/';
         }
     } catch (error) {
         alert('Could not log in to user account')
