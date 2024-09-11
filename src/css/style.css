@@ -1,1 +1,36 @@
 @import url(_reset.css);
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background: #2c2c2c;
+}
+
+a, h1 {
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    font-size: 18px;
+    color: white;
+}
+
+form input {
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
