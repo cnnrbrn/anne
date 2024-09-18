@@ -28,6 +28,7 @@ export async function createPost({ blogTitle, blogText, tags, image, alt  }) {
         if (response.ok) {
             const data = await response.json();
             // console.log("Post created successfully:", data);
+            alert('Successfully created new post')
             return data
         } 
     } catch (error) {
