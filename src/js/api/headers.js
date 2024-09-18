@@ -1,6 +1,4 @@
-import { API_KEY } from "./constants";
-import { accessToken } from "./constants";
-
+import { API_KEY, accessToken } from "./constants";
 
 export function headers() {
   const headers = new Headers({
