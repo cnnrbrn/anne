@@ -63,4 +63,4 @@ export function renderSocialPosts(socialPosts) {
         })
 }
 
-console.log('Hello from socialPosts.js');
+
