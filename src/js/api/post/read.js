@@ -33,8 +33,13 @@ export async function readPosts(limit = 12, page = 1, tag) {
         if (response.ok) {
             const data = await response.json();
             const posts = data.data;
+            const meta = data.meta;
+
+            console.log('POSTS: ', posts);
+            console.log('META: ',meta);
             
-            return posts;
+
+            return {posts, meta};
         }
     
     } catch (error) {
