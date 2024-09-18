@@ -1,4 +1,5 @@
 import { API_SOCIAL_POSTS } from "../constants";
+import { renderSocialPosts } from "../../ui/dom/socialPosts";
 import { headers } from "../headers";
 
 let currentPage = 1;
