@@ -38,6 +38,27 @@ firstPageButton.addEventListener('click', async () => {
 
 
 
+export async function readSinglePost(id) {
+    const apiUrl = `${API_SOCIAL_POSTS}/${id}`
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: headers()
+        })
+
+        if (response.ok) {
+            const data = await response.json();
+            const post = data.data;
+            console.log('read single post data: ', post);
+            
+            return post;
+        }
+    } catch (error) {
+        
+    }
+}
+
 
 async function loadPosts() {
     try {
