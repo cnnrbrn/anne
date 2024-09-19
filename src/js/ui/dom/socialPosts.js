@@ -9,6 +9,10 @@ export function buildSocialPostsCards(postData) {
         const postCard = createDivElement({
             className: 'post-card'
         });
+        const navigateToPost = () => {
+            window.location.href = `/post/?id=${postData.id}`
+        }
+        postCard.addEventListener('click', navigateToPost);
         
         const imageContainer = createDivElement({
             className: 'card-image-container'
