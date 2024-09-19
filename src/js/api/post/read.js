@@ -9,30 +9,31 @@ const limit = 12;
 
 
 const nextButton = document.getElementById('paginationNext');
-    nextButton.addEventListener('click', async () => {
-        console.log('clicked');
-        
-        currentPage++;
-        loadPosts()
-    });
-    
 const backButton = document.getElementById('paginationBack');
-    backButton.addEventListener('click', async () => {
-        console.log('clicked');
-        
-        currentPage--;
-        loadPosts()
-    });
-
 const firstPageButton = document.getElementById('paginationFirstPage');
-    firstPageButton.addEventListener('click', async () => {
-        console.log('click');
-        
-    })
-
 const lastPageButton = document.getElementById('paginationLastPage');
-    lastPageButton.addEventListener('click', async () => {
 
+
+
+nextButton.addEventListener('click', async () => {
+    currentPage++;
+    loadPosts();
+});
+
+backButton.addEventListener('click', async () => {
+    currentPage--;
+    loadPosts();
+});
+
+firstPageButton.addEventListener('click', async () => {
+    currentPage = 1;
+    loadPosts();
+})
+
+    lastPageButton.addEventListener('click', async () => {
+    const { meta } = await readPosts(limit, currentPage);
+    currentPage = meta.pageCount;
+    loadPosts();
     })
 
 
