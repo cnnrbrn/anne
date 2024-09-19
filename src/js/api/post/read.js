@@ -42,16 +42,13 @@ firstPageButton.addEventListener('click', async () => {
 async function loadPosts() {
     try {
         const { posts, meta } = await readPosts(limit, currentPage);
+
         if (posts && posts.length > 0) {
             renderSocialPosts(posts);
             showPageInfo(meta.currentPage, meta.pageCount, meta.totalCount);
-
-            // const nextButton = document.getElementById('paginationNext');
-            // const backButton = document.getElementById('paginationBack');
             
             nextButton.style.display = meta.isLastPage ? 'none' : 'block';
             backButton.style.display = meta.isFirstPage ? 'none' : 'block';
-            
             firstPageButton.style.display = meta.isFirstPage ? 'none' : 'block';
             lastPageButton.style.display = meta.isLastPage ? 'none' : 'block';
         } 
