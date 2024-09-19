@@ -19,10 +19,10 @@ authGuard();
 
 
 
-async function initialize() {
+async function loadPosts() {
     const {posts} = await readPosts();
     renderSocialPosts(posts)
     // console.log(posts);
 }
 
-initialize();
+loadPosts();
