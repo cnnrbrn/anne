@@ -57,19 +57,6 @@ export function buildSocialPostsCards(postData) {
 
 
 
-// export function renderSocialPosts(socialPosts) {
-//     document.addEventListener('DOMContentLoaded', async () => {
-//     let renderPosts = document.getElementById('posts');
-//         renderPosts.innerHTML = '';
-//         socialPosts.forEach((post) => {
-//             let postCardHTML = buildSocialPostsCards(post);
-            
-//             renderPosts.appendChild(postCardHTML);
-//         })
-//     })
-// }
-
-
 export function renderSocialPosts(socialPosts) {
     let renderPosts = document.getElementById('posts');
 
