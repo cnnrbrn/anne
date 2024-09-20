@@ -1,71 +1,5 @@
 import { API_SOCIAL_POSTS } from "../constants";
-import { renderSocialPosts } from "../../ui/dom/socialPosts";
-// import { buildSinglePost } from "../../ui/dom/singlePost";
 import { headers } from "../headers";
-
-let currentPage = 1;
-const limit = 12;
-
-// const nextButton = document.getElementById('paginationNext');
-// const backButton = document.getElementById('paginationBack');
-// const firstPageButton = document.getElementById('paginationFirstPage');
-// const lastPageButton = document.getElementById('paginationLastPage');
-
-    
-// nextButton.addEventListener('click', async () => {
-//     currentPage++;
-//     loadPosts();
-// });
-
-// backButton.addEventListener('click', async () => {
-//     currentPage--;
-//     loadPosts();
-// });
-
-// firstPageButton.addEventListener('click', async () => {
-//     currentPage = 1;
-//     loadPosts();
-// })
-
-// lastPageButton.addEventListener('click', async () => {
-//     const { meta } = await readPosts(limit, currentPage);
-//     currentPage = meta.pageCount;
-//     loadPosts();
-// })
-
-
-// async function loadPosts() {
-//     try {
-//         const { posts, meta } = await readPosts(limit, currentPage);
-
-//         if (posts && posts.length > 0) {
-//             renderSocialPosts(posts);
-//             // showPageInfo(meta.currentPage, meta.pageCount, meta.totalCount);
-            
-//             // nextButton.style.display = meta.isLastPage ? 'none' : 'block';
-//             // backButton.style.display = meta.isFirstPage ? 'none' : 'block';
-//             // firstPageButton.style.display = meta.isFirstPage ? 'none' : 'block';
-//             // lastPageButton.style.display = meta.isLastPage ? 'none' : 'block';
-//         } 
-//     } catch (error) {
-//         console.error('Error loading posts: ', error);
-//     }
-// }
-
-// loadPosts()
-
-
-// function showPageInfo(currentPage, totalPages, totalCount) {
-//     const pageInfoElement = document.getElementById('pageInfo');
-//     if (pageInfoElement) {
-//         pageInfoElement.textContent = `Page ${currentPage} of ${totalPages} - Total Posts: ${totalCount}`;
-//     } else {
-//         console.error('No page info element found.');
-//     }
-// }
-
-
-
 
 
 export async function readSinglePost() {
@@ -93,9 +27,6 @@ export async function readSinglePost() {
         alert('failed to load single post');
     };
 };
-
-
-
 
 
 
