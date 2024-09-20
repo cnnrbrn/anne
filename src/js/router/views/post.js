@@ -2,6 +2,7 @@
 
 import { buildSinglePost } from "../../ui/dom/singlePost";
 import { readSinglePost } from "../../api/post/read";
+import { setLogoutListener } from "../../ui/global/logout";
 
 async function loadPost() {
     const post = await readSinglePost();
@@ -10,4 +11,4 @@ async function loadPost() {
 }
 
 loadPost();
-
+setLogoutListener();
