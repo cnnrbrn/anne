@@ -4,6 +4,14 @@ import {
     createHeadingElement, 
     createElementParagraph } from "./domUtils";
 
+// createDivElement({className = '', id = ''})
+
+// createImageElement({className = '', id = '', src = '', alt = ''})
+
+// createHeadingElement({className = '', htmlElement, textContent})
+
+// createElementParagraph({className = '', textContent})
+
 export function buildSocialPostsCards(postData) {
 
         const postCard = createDivElement({
