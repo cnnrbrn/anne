@@ -1,18 +1,13 @@
 // alert("Single Post Page");
 
-
-// import { readSinglePost } from "../../api/post/read";
-
 import { buildSinglePost } from "../../ui/dom/singlePost";
+import { readSinglePost } from "../../api/post/read";
 
+async function loadPost() {
+    const post = await readSinglePost();
+    buildSinglePost(post)
+    console.log('load post',post);
+}
 
-// async function loadPost() {
-//     const post = await readSinglePost();
-//     buildSinglePost(post)
-//     console.log(post);
-    
-// }
+loadPost();
 
-// loadPost();
-
-buildSinglePost();
