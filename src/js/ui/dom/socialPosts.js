@@ -9,11 +9,12 @@ export function buildSocialPostsCards(postData) {
         const postCard = createDivElement({
             className: 'post-card'
         });
-        const navigateToPost = () => {
+
+        postCard.addEventListener('click', () => {
             window.location.href = `/post/?id=${postData.id}`
-        }
-        postCard.addEventListener('click', navigateToPost);
-        
+            // console.log(`clicked single post: /post/?id=${postData.id}`);
+        })
+
         const imageContainer = createDivElement({
             className: 'card-image-container'
         });
@@ -28,7 +29,7 @@ export function buildSocialPostsCards(postData) {
         
             imageContainer.appendChild(postImage);
         } else {
-            console.log(`No media available for post ID: ${postData.id}`);
+            // console.log(`No media available for post ID: ${postData.id}`);
         }
 
         const textContainer = createDivElement({
@@ -56,15 +57,31 @@ export function buildSocialPostsCards(postData) {
 
 
 
+// export function renderSocialPosts(socialPosts) {
+//     document.addEventListener('DOMContentLoaded', async () => {
+//     let renderPosts = document.getElementById('posts');
+//         renderPosts.innerHTML = '';
+//         socialPosts.forEach((post) => {
+//             let postCardHTML = buildSocialPostsCards(post);
+            
+//             renderPosts.appendChild(postCardHTML);
+//         })
+//     })
+// }
+
+
 export function renderSocialPosts(socialPosts) {
     let renderPosts = document.getElementById('posts');
-        renderPosts.innerHTML = '';
 
-        socialPosts.forEach((post) => {
-            let postCardHTML = buildSocialPostsCards(post);
+    if (!renderPosts) {
+        console.error("Posts container not found in the DOM.");
+        return;
+    }
+    renderPosts.innerHTML = '';
 
-            renderPosts.appendChild(postCardHTML);
-        })
+    socialPosts.forEach((post) => {
+        let postCardHTML = buildSocialPostsCards(post);
+
+        renderPosts.appendChild(postCardHTML);
+    })
 }
-
-
