@@ -8,20 +8,9 @@ setLogoutListener();
 authGuard();
 
 
-// async function initialize() {
-//     const {posts, meta } = await readPosts();
-//     if (posts && posts.length > 0)
-//         renderSocialPosts(posts, meta)
-    
-    
-//     // console.log('posts: ', posts);
-// }
-
-
-
 async function loadPosts() {
     const {posts} = await readPosts();
-    renderSocialPosts(posts)
+    renderSocialPosts(posts);
     // console.log(posts);
 }
 
