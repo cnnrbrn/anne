@@ -1,10 +1,9 @@
+import { formatTags } from "../utils/utils";
 import { 
     createDivElement, 
     createImageElement, 
     createHeadingElement, 
     createElementParagraph } from "./domUtils";
-
-    // import { readSinglePost } from "../../api/post/read";
 
 // createDivElement({className = '', id = ''})
 
@@ -16,7 +15,6 @@ import {
 
 export function buildSinglePost(postData) {
     const renderPost = document.getElementById('post');
-
     const imageContainer = createDivElement({
         className: 'single-image-container'
     });
@@ -25,15 +23,19 @@ export function buildSinglePost(postData) {
         className: 'single-text-container'
     });
 
-    const postImage = createImageElement({
+    const postImage = postData.media && postData.media.url ? createImageElement({
         src: postData.media.url, 
-        alt: postData.media.alt
-    }); 
+        alt: postData.media.alt 
+    }) : null; 
+    
+    if (postImage) {
+        imageContainer.appendChild(postImage); // Only append if an image exists
+    }
     
     const postTitle = createHeadingElement({
         className: 'singlePost-heading',
         HTMLElement: 'h2', 
-        textContent: postData.title
+        textContent: postData.title,
     });
 
     const postText = createElementParagraph({
@@ -42,12 +44,11 @@ export function buildSinglePost(postData) {
     });
 
     const postTags = createElementParagraph({
-        textContent: postData.tags
+        textContent: formatTags(postData.tags)
     });
 
 
     textContainer.append(postTitle, postText, postTags)
-    imageContainer.appendChild(postImage)
     renderPost.append(imageContainer, textContainer)
 
     return renderPost;
