@@ -10,18 +10,14 @@ export async function readSinglePost() {
             method: 'GET',
             headers: headers()
         })
-        if (postId) {
-            console.log('Post ID: ', `${API_SOCIAL_POSTS}/${postId}`);
-            
-        };
         
-        console.log('response ',  response);
+        // console.log('Post ID in read.js: ', `${API_SOCIAL_POSTS}/${id}`);
+        // console.log('response in read.js ',  response);
 
         if (response.ok) {
             const data = await response.json();
             const post = data.data;
-            console.log('read single post data: ', data);
-            
+            // console.log('read single post data in read.js: ', data);
             return post;
         };
     } catch (error) {
