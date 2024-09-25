@@ -2,24 +2,20 @@ import { API_SOCIAL_POSTS } from "../constants"
 import { headers } from "../headers";
 
 
-export async function createPost({ blogTitle, blogText, tags, image, alt  }) {
-    const body = {
-        title: blogTitle,
-        body: blogText,
-        tags: [tags],
-        media: {
-            url: image,
-            alt: alt,
-        }
+export async function createPost({ title, body, tags, media  }) {
+    const bodyData = {
+        title, 
+        body, 
+        tags, 
+        media
     };
     
-    // console.log("Request Body:", body);
 
     try {
         const response = await fetch(API_SOCIAL_POSTS, {
             method: 'POST',
             headers: headers(),
-            body: JSON.stringify(body),
+            body: JSON.stringify(bodyData),
         });
 
         // console.log("Request Payload:", JSON.stringify(body, null, 2));
