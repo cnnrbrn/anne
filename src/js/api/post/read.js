@@ -3,9 +3,10 @@ import { headers } from "../headers";
 
 
 export async function readSinglePost() {
-    const postId = new URLSearchParams(window.location.search).get('id');
+    const id = new URLSearchParams(window.location.search).get('id');
+    
     try {
-        const response = await fetch(`${API_SOCIAL_POSTS}/${postId}`, {
+        const response = await fetch(`${API_SOCIAL_POSTS}/${id}?_author=true`, {
             method: 'GET',
             headers: headers()
         })
