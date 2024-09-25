@@ -36,6 +36,7 @@ function buildQueryParams(limit, page, tag) {
     const queryParams = new URLSearchParams({
         limit: limit.toString(),
         page: page.toString(),
+_author: true
     });
     if (tag) {
         queryParams.append('tag', tag)
