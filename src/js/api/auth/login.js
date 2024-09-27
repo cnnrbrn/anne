@@ -1,17 +1,14 @@
 import { API_AUTH_LOGIN } from "../constants";
 import { headers } from "../headers";
 
+
 export async function login({ email, password }) {
-    const body = JSON.stringify({
-        email: email,
-        password: password 
-    });
     
     try {
         const response = await fetch(API_AUTH_LOGIN, {
         method: 'POST',
         headers: headers(),
-        body,
+        body: JSON.stringify({ email, password }),
         });
 
         if (!response.ok) {
