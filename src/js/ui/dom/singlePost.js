@@ -72,12 +72,16 @@ export function buildSinglePost(postData) {
 
         editButton.addEventListener('click', () => {
             window.location.href = `/post/edit/?id=${postData.id}`;
-        });
+    const commentsContainer = createElementParagraph({
+        id: 'commentsContainer',
+    });
+        
         
 
     buttonContainer.append(editButton, deleteButton);
-    textContainer.append(postTitle, postText, postTags, postAuthor);
+    textContainer.append(postTitle, postText, postTags, postAuthor, commentsContainer);
     renderPost.append(imageContainer, textContainer, buttonContainer);
+    renderComments(postData.comments)
 
     return renderPost;
 }
