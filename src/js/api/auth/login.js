@@ -14,13 +14,15 @@ export async function login({ email, password }) {
         body,
         });
 
-        const data = await response.json();
-        const accessToken = data.data.accessToken;
-        if (response.ok) {
+        if (!response.ok) {
+            alert('Failed to login, wrong email or password')
+        } else {
+            const data = await response.json();
+            const accessToken = data.data.accessToken;
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('userData', JSON.stringify(data.data));
             window.location.href = '/';
-        };
+        }
         
     } catch (error) {
         alert('Could not log in to user account')
