@@ -11,12 +11,15 @@ export async function updatePost(id, { title, body, tags, media }) {
             body: JSON.stringify({title, body, tags, media})
         });
 
-        if (response.ok) {
+        if (!response.ok) {
+            alert('Failed to update post')
+            
+        } else {
             alert('Post successfully updated')
+            window.location.href = `/post/?id=${id}`
+            const data = await response.json();
+            return data;
         }
-
-        const data = await response.json();
-        return data;
     } catch (error) {
         console.error('Failed to update the post:', error);
     }
