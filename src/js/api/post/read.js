@@ -6,7 +6,7 @@ export async function readSinglePost() {
     const id = new URLSearchParams(window.location.search).get('id');
     
     try {
-        const response = await fetch(`${API_SOCIAL_POSTS}/${id}?_author=true`, {
+        const response = await fetch(`${API_SOCIAL_POSTS}/${id}?_author=true&_comments=true`, {
             method: 'GET',
             headers: headers()
         })
