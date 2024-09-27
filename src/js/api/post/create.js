@@ -3,18 +3,12 @@ import { headers } from "../headers";
 
 
 export async function createPost({ title, body, tags, media  }) {
-    const bodyData = {
-        title, 
-        body, 
-        tags, 
-        media
-    };
-    
+
     try {
         const response = await fetch(API_SOCIAL_POSTS, {
             method: 'POST',
             headers: headers(),
-            body: JSON.stringify(bodyData),
+            body: JSON.stringify({ title, body, tags, media  }),
         });
 
         if (!response.ok) {
