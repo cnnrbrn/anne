@@ -2,6 +2,7 @@ import { setLogoutListener } from "../../ui/global/logout";
 import { readPosts } from "../../api/post/read";
 import { renderSocialPosts } from "../../ui/dom/socialPosts";
 import { authGuard } from "../../utilities/authGuard";
+import { buildNavBar } from "../../ui/dom/nav";
 
 let currentPage = 1;
 const limit = 12;
@@ -72,6 +73,7 @@ async function init() {
     // console.log(posts);
 }
 
+buildNavBar();
 loadPosts()
 setLogoutListener();
 authGuard();
