@@ -18,9 +18,10 @@ export function buildSocialPostsCards(postData) {
             className: 'post-card'
         });
 
-        postCard.addEventListener('click', () => {
+        const contentContainer = createDivElement({  });
+
+        contentContainer.addEventListener('click', () => {
             window.location.href = `/post/?id=${postData.id}`
-            // console.log(`clicked single post: /post/?id=${postData.id}`);
         })
 
         const imageContainer = createDivElement({
