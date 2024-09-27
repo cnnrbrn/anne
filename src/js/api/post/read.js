@@ -52,7 +52,9 @@ export async function readPosts(limit = 12, page = 1, tag, _author) {
             headers: headers(),
         })
         
-        if (response.ok) {
+        if (!response.ok) {
+            alert('Could not get social posts')
+        } else {
             const data = await response.json();
             const posts = data.data;
             const meta = data.meta;
