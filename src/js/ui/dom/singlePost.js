@@ -1,3 +1,4 @@
+import { onDeletePost } from "../post/delete";
 import { formatTags } from "../../utilities/tags"; 
 import { 
     createDivElement, 
@@ -47,9 +48,12 @@ export function buildSinglePost(postData) {
         textContent: formatTags(postData.tags)
     });
 
-
-    textContainer.append(postTitle, postText, postTags)
-    renderPost.append(imageContainer, textContainer)
+    const deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn');
+        deleteButton.id = 'deletePostButton';
+        deleteButton.innerText = 'Delete Post';
+        deleteButton.addEventListener('click', () => onDeletePost());
+        deleteButton.style.display = userData.name === postData.author.name ? 'block' : 'none';
 
     return renderPost;
 }
