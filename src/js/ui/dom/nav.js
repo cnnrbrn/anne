@@ -1,13 +1,10 @@
 
+import { DISPLAY_BLOCK, DISPLAY_NONE } from "../../api/constants";
 import { 
     createImageElement, 
     createElementHref, 
     createElementButton } from "./domElements";
 
-// createDivElement({className = '', id = ''})
-
-const ifToken = localStorage.accessToken ? 'block' : 'none';
-const noToken = localStorage.accessToken ? 'none' : 'block';
 
 export function buildNavBar() {
     const header = document.querySelector('header');
@@ -25,19 +22,19 @@ export function buildNavBar() {
         href: '/',
         textContent: 'Home'
         });
-        home.style.display = ifToken;
+        home.style.display = DISPLAY_BLOCK;
         
     const create = createElementHref({
         href: '/post/create/',
         textContent: 'Create Post'
         });
-        create.style.display = ifToken;
+        create.style.display = DISPLAY_BLOCK;
         
     const profile = createElementHref({
         href: '/profile/',
         textContent: 'Profile'
         });
-        profile.style.display = ifToken;
+        profile.style.display = DISPLAY_BLOCK;
         
     const loginButton = createElementButton({
         id: 'loginButton',
@@ -47,14 +44,14 @@ export function buildNavBar() {
         loginButton.addEventListener('click', () => {
             window.location.href = '/auth/login/'
         });
-        loginButton.style.display = noToken;
+        loginButton.style.display = DISPLAY_NONE;
         
     const logoutButton = createElementButton({
         id: 'logoutButton',
         className: 'nav-btn',
         textContent: 'Logout'
         });
-        logoutButton.style.display = ifToken;
+        logoutButton.style.display = DISPLAY_BLOCK;
         
     const registerButton = createElementButton({
         id: 'registerButton',
@@ -64,7 +61,7 @@ export function buildNavBar() {
         registerButton.addEventListener('click', () => {
             window.location.href = '/auth/register/'
         });
-        registerButton.style.display = noToken;
+        registerButton.style.display = DISPLAY_NONE;
         
         
     ul.append(home, create, profile, logoutButton, loginButton, registerButton);
