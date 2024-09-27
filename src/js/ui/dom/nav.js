@@ -1,65 +1,75 @@
 
-import { createImageElement } from "./domElements";
+import { 
+    createImageElement, 
+    createElementHref, 
+    createElementButton } from "./domElements";
 
 // createDivElement({className = '', id = ''})
 
+const ifToken = localStorage.accessToken ? 'block' : 'none';
+const noToken = localStorage.accessToken ? 'none' : 'block';
+
 export function buildNavBar() {
     const header = document.querySelector('header');
-
-    const nav = document.createElement('nav');
     
+    const nav = document.createElement('nav');
     
     const logo = createImageElement({
         src: '/images/noroff-logo.png',
         className: 'nav-logo'
-    });
-    
+        });
+        
     const ul = document.createElement('ul');
-        ul.style.display = localStorage.accessToken ? 'flex' : 'none';
-
-    const home = document.createElement('a');
-        home.href = '/';
-        home.textContent = 'Home';
-        home.style.display = localStorage.accessToken ? 'block' : 'none';
-
-    const create = document.createElement('a');
-        create.href = '/post/create/';
-        create.textContent = 'Create Post';
-        create.style.display = localStorage.accessToken ? 'block' : 'none';
-
-    const profile = document.createElement('a');
-        profile.href = '/profile/';
-        profile.textContent = 'Profile';
-        profile.style.display = localStorage.accessToken ? 'block' : 'none';
-
-    const logoutButton = document.createElement('button');
-        logoutButton.id = 'logoutButton';
-        logoutButton.textContent = 'Logout'
-        logoutButton.classList.add('nav-btn');
-        logoutButton.style.display = localStorage.accessToken ? 'block' : 'none';
-
-
-    const loginButton = document.createElement('button');
-        loginButton.id = 'loginButton';
-        loginButton.textContent = 'Login';
-        loginButton.classList.add('nav-btn');
+    
+    const home = createElementHref({
+        href: '/',
+        textContent: 'Home'
+        });
+        home.style.display = ifToken;
+        
+    const create = createElementHref({
+        href: '/post/create/',
+        textContent: 'Create Post'
+        });
+        create.style.display = ifToken;
+        
+    const profile = createElementHref({
+        href: '/profile/',
+        textContent: 'Profile'
+        });
+        profile.style.display = ifToken;
+        
+    const loginButton = createElementButton({
+        id: 'loginButton',
+        className: 'nav-btn',
+        textContent: 'Login'
+        });
         loginButton.addEventListener('click', () => {
             window.location.href = '/auth/login/'
-        })
-        loginButton.style.display = localStorage.accessToken ? 'none' : 'block';
+        });
+        loginButton.style.display = noToken;
         
-
-    const registerButton = document.createElement('button');
-        registerButton.id = 'registerButton';
-        registerButton.textContent = 'Register';
-        registerButton.classList.add('nav-btn');
+    const logoutButton = createElementButton({
+        id: 'logoutButton',
+        className: 'nav-btn',
+        textContent: 'Logout'
+        });
+        logoutButton.style.display = ifToken;
+        
+    const registerButton = createElementButton({
+        id: 'registerButton',
+        className: 'nav-btn',
+        textContent: 'Register'
+        });
         registerButton.addEventListener('click', () => {
             window.location.href = '/auth/register/'
-        })
-        registerButton.style.display = localStorage.accessToken ? 'none' : 'block';
-
-
+        });
+        registerButton.style.display = noToken;
+        
+        
     ul.append(home, create, profile, logoutButton, loginButton, registerButton);
     nav.append(logo, ul);
     header.append(nav);
 }
+
+
