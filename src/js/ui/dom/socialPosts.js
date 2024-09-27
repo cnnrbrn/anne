@@ -35,11 +35,9 @@ export function buildSocialPostsCards(postData) {
                 src: postData.media.url,
                 alt: postData.media.alt
             });
-        
+            
             imageContainer.appendChild(postImage);
-        } else {
-            // console.log(`No media available for post ID: ${postData.id}`);
-        }
+        } 
 
         const textContainer = createDivElement({
             className: 'card-text-container',
