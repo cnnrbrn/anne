@@ -28,7 +28,7 @@ export async function readSinglePost() {
 
 
 
-function buildQueryParams(limit, page, tag) {
+function buildQueryParams(limit, page, tag, _author) {
     const queryParams = new URLSearchParams({
         limit: limit.toString(),
         page: page.toString(),
@@ -42,10 +42,10 @@ function buildQueryParams(limit, page, tag) {
 
 
 
-export async function readPosts(limit = 12, page = 1, tag) {
+export async function readPosts(limit = 12, page = 1, tag, _author) {
     
     try {
-        const queryParam = buildQueryParams(limit, page, tag)
+        const queryParam = buildQueryParams(limit, page, tag, _author)
         
         const response = await fetch(`${API_SOCIAL_POSTS}?${queryParam}`, {
             method: 'GET',
