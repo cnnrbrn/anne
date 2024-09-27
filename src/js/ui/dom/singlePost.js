@@ -1,3 +1,4 @@
+import { userData } from "../../api/constants";
 import { onDeletePost } from "../post/delete";
 import { formatTags } from "../../utilities/tags"; 
 import { 
@@ -48,12 +49,35 @@ export function buildSinglePost(postData) {
         textContent: formatTags(postData.tags)
     });
 
+    const postAuthor = createElementParagraph({
+        textContent: 'Post by: ' + postData.author.name
+    });
+
+    const buttonContainer = createDivElement({
+        className: 'singlePostButtons'
+    });
+
     const deleteButton = document.createElement('button');
         deleteButton.classList.add('btn');
         deleteButton.id = 'deletePostButton';
         deleteButton.innerText = 'Delete Post';
         deleteButton.addEventListener('click', () => onDeletePost());
         deleteButton.style.display = userData.name === postData.author.name ? 'block' : 'none';
+
+    const editButton = document.createElement('button');
+        editButton.classList.add('btn');
+        editButton.id = 'editPostButton';
+        editButton.innerText = 'Edit Post';
+        editButton.style.display = userData.name === postData.author.name ? 'block' : 'none';
+
+        editButton.addEventListener('click', () => {
+            window.location.href = `/post/edit/?id=${postData.id}`;
+        });
+        
+
+    buttonContainer.append(editButton, deleteButton);
+    textContainer.append(postTitle, postText, postTags, postAuthor);
+    renderPost.append(imageContainer, textContainer, buttonContainer);
 
     return renderPost;
 }
