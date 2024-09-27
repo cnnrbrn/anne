@@ -1,18 +1,14 @@
 import { API_AUTH_REGISTER } from "../constants";
 import { headers } from "../headers";
 
-export async function register({ name, email, password}) {
-    const body = JSON.stringify({
-        name, 
-        email, 
-        password
-    });
 
+export async function register({ name, email, password }) {
+    
     try {
         const response = await fetch(API_AUTH_REGISTER, {
             method: 'POST',
             headers: headers(), 
-            body,
+            body: JSON.stringify({ name, email, password }),
         });
 
         if (!response.ok) {
