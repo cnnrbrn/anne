@@ -1,8 +1,9 @@
 import { updatePost } from "../../api/post/update";
 
-export async function onUpdatePost(event) {
+export async function onUpdatePost(event, id) {
     event.preventDefault();
-    const id = new URLSearchParams(window.location.search).get('id');
+
+    console.log("Post ID fetched from URL:", id);
 
     const form = new FormData(event.target);
 
