@@ -2,6 +2,7 @@ import { authGuard } from "../../utilities/authGuard";
 import { setLogoutListener } from "../../ui/global/logout";
 import { onUpdatePost } from "../../ui/post/update";
 import { readSinglePost } from "../../api/post/read";
+import { buildNavBar } from "../../ui/dom/nav";
 
 
 async function viewFormData() {
@@ -16,12 +17,12 @@ async function viewFormData() {
     };
 };
 
-setLogoutListener();
-authGuard();
-viewFormData();
-
 
 const form = document.forms.editPost;
 form.addEventListener("submit", onUpdatePost);
 
-console.log('router/views/postEdit.js');
+
+buildNavBar();
+setLogoutListener();
+authGuard();
+viewFormData();
