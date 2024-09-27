@@ -1,4 +1,4 @@
-import { formatTags } from "../utils/utils";
+import { formatTags } from "../../utilities/tags"; 
 import { 
     createDivElement, 
     createImageElement, 
