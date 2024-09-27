@@ -55,9 +55,18 @@ export function buildSocialPostsCards(postData) {
             textContent: postData.body
         });
 
+        const postAuthor = createElementParagraph({
+            textContent: 'Post by: ' + postData.author.name
+        });
+
+        const buttonContainer = createDivElement({
+            className: 'singlePostButtons'
+        });
         
-        textContainer.append(postTitle, postText)
-        postCard.append(imageContainer, textContainer);
+        
+        textContainer.append(postTitle, postText, postAuthor)
+        contentContainer.append(imageContainer, textContainer)
+        postCard.append(contentContainer, buttonContainer);
     
     return postCard;
 }
