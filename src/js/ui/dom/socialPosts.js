@@ -2,7 +2,7 @@ import {
     createDivElement, 
     createImageElement, 
     createHeadingElement, 
-    createElementParagraph } from "./domUtils";
+    createElementParagraph } from "./domElements";
 
 // createDivElement({className = '', id = ''})
 
