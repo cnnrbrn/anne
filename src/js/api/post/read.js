@@ -17,7 +17,7 @@ export async function readSinglePost() {
         if (response.ok) {
             const data = await response.json();
             const post = data.data;
-            // console.log('read single post data in read.js: ', data);
+            console.log('read single post data in read.js: ', data);
             return post;
         };
     } catch (error) {
