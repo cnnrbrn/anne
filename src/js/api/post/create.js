@@ -8,14 +8,12 @@ export async function createPost({ title, body, tags, media }) {
       headers: headers(),
       body: JSON.stringify({ title, body, tags, media }),
     });
-
     if (!response.ok) {
       alert('Failed to create post');
     } else {
       const data = await response.json();
-      console.log('Post created successfully:', data);
-      alert('Successfully created new post');
-      window.location.href = '/';
+      alert('Successfully created new post, redirecting you to the post');
+      window.location.href = `/post/?id=${data.data.id}`;
       return data;
     }
   } catch (error) {
