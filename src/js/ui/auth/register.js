@@ -5,5 +5,5 @@ export async function onRegister(event) {
 
   const registerUserData = Object.fromEntries(new FormData(event.target));
 
-  register(registerUserData);
+  await register(registerUserData);
 }
