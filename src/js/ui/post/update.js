@@ -7,7 +7,10 @@ export async function onUpdatePost(event, id) {
 
   const form = new FormData(event.target);
 
-  const editedData = {
+  const imageUrl = form.get('image');
+  const altText = form.get('alt');
+
+  const getForms = {
     title: form.get('postTitle'),
     body: form.get('postText'),
     tags: form.get('tags')
@@ -16,14 +19,11 @@ export async function onUpdatePost(event, id) {
           .split(', ')
           .map((tag) => tag.trim())
       : [],
-    media: {
-      url: form.get('image'),
-      alt: form.get('alt'),
-    },
+    media: imageUrl || altText ? { url: imageUrl, alt: altText } : null,
   };
 
-  console.log('Formed new Data:', editedData);
-  updatePost(id, editedData);
+  console.log('Formed new Data:', getForms);
+  updatePost(id, getForms);
 }
 
 console.log('ui/post/update.js');
