@@ -1,10 +1,9 @@
-import { register } from "../../api/auth/register";
+import { register } from '../../api/auth/register';
 
 export async function onRegister(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const registerUserData = Object.fromEntries(new FormData(form));
+  event.preventDefault();
 
-    register(registerUserData);
+  const registerUserData = Object.fromEntries(new FormData(event.target));
+
+  register(registerUserData);
 }

@@ -1,10 +1,9 @@
-import { login } from "../../api/auth/login";
+import { login } from '../../api/auth/login';
 
 export async function onLogin(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const loginUserData = Object.fromEntries(new FormData(form));
-    
-    login(loginUserData);
+  event.preventDefault();
+
+  const loginUserData = Object.fromEntries(new FormData(event.target));
+
+  login(loginUserData);
 }
