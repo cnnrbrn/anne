@@ -28,3 +28,7 @@
     object-fit: cover;
     object-position: center;
 }
+
+.social-posts-content {
+    cursor: pointer;
+}
