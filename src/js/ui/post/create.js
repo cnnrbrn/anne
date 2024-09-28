@@ -8,7 +8,7 @@ export async function onCreatePost(event) {
   const imageUrl = form.get('image');
   const altText = form.get('alt');
 
-  const createNewPost = {
+  const getForms = {
     title: form.get('postTitle'),
     body: form.get('postText'),
     tags: form.get('tags')
@@ -17,15 +17,13 @@ export async function onCreatePost(event) {
           .split(', ')
           .map((tag) => tag.trim())
       : [],
-    media:
-      imageUrl && altText
-        ? {
-            url: imageUrl,
-            alt: altText,
-          }
-        : null,
+    media: imageUrl || altText ? { url: imageUrl, alt: altText } : null,
   };
 
-  console.log('Formed new Data:', createNewPost);
-  createPost(createNewPost);
+  try {
+    await createPost(getForms);
+  } catch (error) {
+    console.error('Failed to create post:', error);
+    alert('There was an error creating your post. Please try again.');
+  }
 }
