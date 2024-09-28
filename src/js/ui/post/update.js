@@ -7,9 +7,6 @@ export async function onUpdatePost(event, id) {
 
   const form = new FormData(event.target);
 
-  const imageUrl = form.get('image');
-  const altText = form.get('alt');
-
   const editedData = {
     title: form.get('postTitle'),
     body: form.get('postText'),
@@ -19,13 +16,10 @@ export async function onUpdatePost(event, id) {
           .split(', ')
           .map((tag) => tag.trim())
       : [],
-    media:
-      imageUrl && altText
-        ? {
-            url: imageUrl,
-            alt: altText,
-          }
-        : null,
+    media: {
+      url: form.get('image'),
+      alt: form.get('alt'),
+    },
   };
 
   console.log('Formed new Data:', editedData);
