@@ -1,3 +1,4 @@
+import { hideLoader, showLoader } from '../../utilities/loader';
 import { API_SOCIAL_POSTS } from '../constants';
 import { headers } from '../headers';
 
@@ -26,6 +27,7 @@ import { headers } from '../headers';
 export async function readSinglePost() {
   const id = new URLSearchParams(window.location.search).get('id');
 
+  showLoader();
   try {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${id}?_author=true&_comments=true`,
@@ -42,6 +44,8 @@ export async function readSinglePost() {
     }
   } catch (error) {
     alert('failed to load single post');
+  } finally {
+    hideLoader();
   }
 }
 
@@ -103,6 +107,7 @@ function buildQueryParams(limit = 12, page = 1, tag, _author) {
  */
 
 export async function readPosts(limit, page, tag, _author) {
+  showLoader();
   try {
     const queryParam = buildQueryParams(limit, page, tag, _author);
 
@@ -122,6 +127,8 @@ export async function readPosts(limit, page, tag, _author) {
     }
   } catch (error) {
     alert('Error loading social posts');
+  } finally {
+    hideLoader();
   }
 }
 
