@@ -64,5 +64,3 @@ export async function updatePost(id, { title, body, tags, media }) {
     console.error('Failed to update the post:', error);
   }
 }
-
-console.log('api/post/update.js');
