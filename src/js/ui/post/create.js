@@ -1,5 +1,22 @@
 import { createPost } from '../../api/post/create';
 
+/**
+ *
+ * @description
+ * This function captures the form data (title, body, tags, and media) from the event target, processes it,
+ * and submits it using the `createPost` function to create a new post. If successful, the post will be created;
+ * otherwise, it logs and alerts the error.
+ *
+ * @async
+ * @function onCreatePost
+ * @param {Event} event
+ * @returns {Promise<object>} A promise that on successful create post resolves form data.
+ *
+ * @example
+ * const form = document.forms.createPost;
+ * form.addEventListener("submit", onCreatePost);
+ */
+
 export async function onCreatePost(event) {
   event.preventDefault();
 

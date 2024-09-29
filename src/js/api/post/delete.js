@@ -1,6 +1,19 @@
 import { API_SOCIAL_POSTS } from '../constants';
 import { headers } from '../headers';
 
+/**
+ *
+ * @description
+ * Deletes a post by sending a `DELETE` request to the server.
+ *
+ * This function retrieves the posts ID from URL parameter and sends the `DELETE` request to server to remove the post.
+ * If delete is successful, it removes the post and sends the user to home page.
+ *
+ * @async
+ * @function deletePost
+ * @returns {Promise<void>} A promise that resolves when post is successfully deleted
+ */
+
 export async function deletePost() {
   const id = new URLSearchParams(window.location.search).get('id');
   try {

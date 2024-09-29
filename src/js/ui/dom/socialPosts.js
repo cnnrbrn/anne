@@ -68,6 +68,23 @@ export function buildSocialPostsCards(postData) {
   return postCard;
 }
 
+/**
+ * @description
+ * Renders a list of social post into the DOM
+ *
+ * This function takes an array of social posts and appends their
+ * corresponding HTML elements to the specified container in the DOM using `buildSocialPostsCard`
+ *
+ * @function renderSocialPosts
+ * @param {Array<object>} socialPosts - An array of post objects to be rendered
+ * @returns {void}
+ *
+ * @example
+ * // Example usage of the renderSocialPosts function
+ * const posts = [{ title: 'Post 1' }, { title: 'Post 2' }]; // Array of post objects
+ * renderSocialPosts(posts);
+ */
+
 export function renderSocialPosts(socialPosts) {
   let renderPosts = document.getElementById('posts');
 
