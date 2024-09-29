@@ -51,6 +51,6 @@ export async function register({ name, email, password }) {
     }
   } catch (error) {
     alert('Could not register new user account');
-    console.log(error);
+    console.error(error);
   }
 }

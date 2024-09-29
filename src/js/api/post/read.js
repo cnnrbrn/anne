@@ -35,13 +35,9 @@ export async function readSinglePost() {
       }
     );
 
-    // console.log('Post ID in read.js: ', `${API_SOCIAL_POSTS}/${id}`);
-    // console.log('response in read.js ',  response);
-
     if (response.ok) {
       const data = await response.json();
       const post = data.data;
-      console.log('read single post data in read.js: ', data);
       return post;
     }
   } catch (error) {
@@ -121,9 +117,6 @@ export async function readPosts(limit, page, tag, _author) {
       const data = await response.json();
       const posts = data.data;
       const meta = data.meta;
-
-      console.log('POSTS: ', posts);
-      console.log('META: ', meta);
 
       return { posts, meta };
     }

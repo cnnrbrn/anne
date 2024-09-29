@@ -6,5 +6,3 @@ export function setLogoutListener() {
     onLogout();
   });
 }
-
-console.log('hello');

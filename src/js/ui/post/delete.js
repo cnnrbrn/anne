@@ -20,7 +20,5 @@ export async function onDeletePost(id) {
 
   if (confirmDelete) {
     await deletePost(id);
-  } else {
-    console.log('User canceled the delete action.');
   }
 }

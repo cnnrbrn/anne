@@ -20,8 +20,6 @@ import { updatePost } from '../../api/post/update';
 export async function onUpdatePost(event, id) {
   event.preventDefault();
 
-  console.log('Post ID fetched from URL:', id);
-
   const form = new FormData(event.target);
 
   const imageUrl = form.get('image');
@@ -41,11 +39,8 @@ export async function onUpdatePost(event, id) {
 
   try {
     await updatePost(id, getForms);
-    console.log('Formed new Data:', getForms);
   } catch (error) {
     console.error('Failed to update post:', error);
     alert('There was an error updating your post. Please try again.');
   }
 }
-
-console.log('ui/post/update.js');

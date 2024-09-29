@@ -20,7 +20,6 @@ import { buildNavBar } from '../../ui/dom/nav';
 async function loadSinglePost() {
   const post = await readSinglePost();
   buildSinglePost(post);
-  console.log('load post in post.js', post);
 }
 
 buildNavBar();

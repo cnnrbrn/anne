@@ -51,6 +51,6 @@ export async function login({ email, password }) {
     }
   } catch (error) {
     alert('Could not log in to user account');
-    console.log(error);
+    console.error(error);
   }
 }
