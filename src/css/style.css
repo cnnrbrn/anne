@@ -1,3 +1,6 @@
+@import url(loader.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
