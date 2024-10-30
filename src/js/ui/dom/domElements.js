@@ -1,6 +1,6 @@
 export function createImageElement({
   id = '',
-  className = '',
+  className = [],
   src = '',
   alt = '',
 }) {
@@ -11,15 +11,17 @@ export function createImageElement({
     alt,
   });
 
-  if (className) elementImage.classList.add(className);
+  if (className.length) {
+    elementImage.classList.add(...className);
+  }
 
   return elementImage;
 }
 
-export function createDivElement({ className = '', id = '' }) {
+export function createDivElement({ className = [], id = '' }) {
   const elementDiv = document.createElement('div');
-  if (className) {
-    elementDiv.classList.add(className);
+  if (className.length) {
+    elementDiv.classList.add(...className);
   }
   if (id) {
     elementDiv.id = id;
@@ -29,21 +31,21 @@ export function createDivElement({ className = '', id = '' }) {
 
 export function createHeadingElement({
   id = '',
-  className = '',
+  className = [],
   htmlElement,
   textContent,
 }) {
   const elementHeading = document.createElement(htmlElement);
   elementHeading.textContent = textContent;
-  if (className) {
-    elementHeading.classList.add(className);
+  if (className.length) {
+    elementHeading.classList.add(...className);
   }
   return elementHeading;
 }
 
 export function createElementParagraph({
   id = '',
-  className = '',
+  className = [],
   textContent,
 }) {
   const elementParagraph = document.createElement('p');
@@ -51,8 +53,8 @@ export function createElementParagraph({
   if (id) {
     elementParagraph.id = id;
   }
-  if (className) {
-    elementParagraph.classList.add(className);
+  if (className.length) {
+    elementParagraph.classList.add(...className);
   }
   if (textContent) {
     elementParagraph.textContent = textContent;
@@ -60,14 +62,14 @@ export function createElementParagraph({
   return elementParagraph;
 }
 
-export function createElementHref({ href = '', className = '', textContent }) {
+export function createElementHref({ href = '', className = [], textContent }) {
   const elementHref = document.createElement('a');
 
   if (href) {
     elementHref.href = href;
   }
-  if (className) {
-    elementHref.classList.add(className);
+  if (className.length) {
+    elementHref.classList.add(...className);
   }
   if (textContent) {
     elementHref.textContent = textContent;
@@ -75,14 +77,14 @@ export function createElementHref({ href = '', className = '', textContent }) {
   return elementHref;
 }
 
-export function createElementButton({ id = '', className = '', textContent }) {
+export function createElementButton({ id = '', className = [], textContent }) {
   const elementButton = document.createElement('button');
 
   if (id) {
     elementButton.id = id;
   }
-  if (className) {
-    elementButton.classList.add(className);
+  if (className.length) {
+    elementButton.classList.add(...className);
   }
   if (textContent) {
     elementButton.textContent = textContent;
