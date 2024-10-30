@@ -22,7 +22,13 @@ export function buildNavBar() {
 
   const logo = createImageElement({
     src: '/images/noroff-logo1.png',
-    className: ['nav-logo', 'h-6', 'md:h-8'],
+    className: [
+      'nav-logo',
+      'h-6',
+      'md:h-8',
+      'cursor-pointer',
+      'hover:drop-shadow-white',
+    ],
   });
   logo.addEventListener('click', () => (window.location.href = '/'));
 
@@ -71,18 +77,21 @@ export function buildNavBar() {
   const home = createElementHref({
     href: '/',
     textContent: 'Home',
+    className: ['md:hover:text-purpleDark'],
   });
   home.style.display = DISPLAY_BLOCK;
 
   const create = createElementHref({
     href: '/post/create/',
     textContent: 'Create Post',
+    className: ['md:hover:text-purpleDark'],
   });
   create.style.display = DISPLAY_BLOCK;
 
   const profile = createElementHref({
     href: '/profile/',
     textContent: 'Profile',
+    className: ['md:hover:text-purpleDark'],
   });
   profile.style.display = DISPLAY_BLOCK;
 
@@ -90,6 +99,7 @@ export function buildNavBar() {
     id: 'loginButton',
     className: 'nav-btn',
     textContent: 'Login',
+    className: ['md:hover:text-purpleDark'],
   });
   loginButton.addEventListener('click', () => {
     window.location.href = '/auth/login/';
@@ -100,6 +110,7 @@ export function buildNavBar() {
     id: 'logoutButton',
     className: 'nav-btn',
     textContent: 'Logout',
+    className: ['md:hover:text-purpleDark'],
   });
   logoutButton.style.display = DISPLAY_BLOCK;
 
@@ -107,6 +118,7 @@ export function buildNavBar() {
     id: 'registerButton',
     className: 'nav-btn',
     textContent: 'Register',
+    className: ['md:hover:text-purpleDark'],
   });
   registerButton.addEventListener('click', () => {
     window.location.href = '/auth/register/';
