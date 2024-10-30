@@ -7,23 +7,29 @@ import {
 
 export function buildSocialPostsCards(postData) {
   const postCard = createDivElement({
-    className: 'post-card',
+    className: ['post-card'],
   });
 
   const contentContainer = createDivElement({
-    className: 'social-posts-content',
-  });
-  contentContainer.addEventListener('click', () => {
-    window.location.href = `/post/?id=${postData.id}`;
+    className: ['social-posts-content'],
   });
 
   const imageContainer = createDivElement({
-    className: 'card-image-container',
+    className: [
+      'w-full',
+      'h-60',
+      'sm:h-80',
+      'cursor-pointer',
+      'hover:drop-shadow-white',
+    ],
+  });
+  imageContainer.addEventListener('click', () => {
+    window.location.href = `/post/?id=${postData.id}`;
   });
 
   if (postData.media && postData.media.url) {
     const postImage = createImageElement({
-      className: 'post-card-image',
+      className: ['w-full', 'h-full', 'object-cover'],
       id: postData.id,
       src: postData.media.url,
       alt: postData.media.alt,
@@ -33,37 +39,43 @@ export function buildSocialPostsCards(postData) {
   }
 
   const textContainer = createDivElement({
-    className: 'card-text-container',
+    className: ['bg-purpleLight', 'py-4'],
     id: 'cardTextContainer',
   });
 
+  const userIcon = createDivElement({
+    className: ['fa-solid', 'fa-user', 'flex', 'gap-2', 'pt-2', 'px-4'],
+  });
+
+  const userName = document.createElement('span');
+  userName.textContent = postData.author.name;
+  userName.classList.add('font-sans', 'text-sm', 'font-light');
+
   const postTitle = createHeadingElement({
-    className: 'post-card-title',
+    className: ['text-xl', 'font-bold', 'pt-2', 'px-4'],
     htmlElement: 'h2',
     textContent: postData.title,
   });
 
   const postText = createElementParagraph({
-    className: 'post-card-text',
+    className: ['pt-2', 'px-4'],
     textContent: postData.body,
   });
 
-  const postAuthor = createElementParagraph({
-    textContent: 'Post by: ' + postData.author.name,
-  });
-
-  const buttonContainer = createDivElement({
-    className: 'singlePostButtons',
-  });
-
-  const commentsContainer = createElementParagraph({
+  const commentsIcon = createDivElement({
     id: 'commentsContainer',
-    textContent: 'Comments: ' + postData._count.comments,
+    className: ['fa-solid', 'fa-comment', 'flex', 'gap-2', 'pt-2', 'px-4'],
   });
 
-  textContainer.append(postTitle, postText, postAuthor, commentsContainer);
+  const commentsCount = document.createElement('span');
+  commentsCount.textContent = postData._count.comments;
+  commentsCount.classList.add('font-sans', 'font-xs');
+
+  userIcon.appendChild(userName);
+  commentsIcon.appendChild(commentsCount);
+  textContainer.append(userIcon, postTitle, postText, commentsIcon);
   contentContainer.append(imageContainer, textContainer);
-  postCard.append(contentContainer, buttonContainer);
+  postCard.append(contentContainer);
 
   return postCard;
 }
