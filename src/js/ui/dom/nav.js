@@ -3,19 +3,70 @@ import {
   createImageElement,
   createElementHref,
   createElementButton,
+  createDivElement,
 } from './domElements';
 
 export function buildNavBar() {
   const header = document.querySelector('header');
 
   const nav = document.createElement('nav');
+  nav.classList.add(
+    'flex',
+    'justify-between',
+    'items-center',
+    'max-w-7xl',
+    'w-full',
+    'text-lg',
+    'font-semibold'
+  );
 
   const logo = createImageElement({
-    src: '/images/noroff-logo.png',
-    className: 'nav-logo',
+    src: '/images/noroff-logo1.png',
+    className: ['nav-logo', 'h-6', 'md:h-8'],
   });
+  logo.addEventListener('click', () => (window.location.href = '/'));
 
   const ul = document.createElement('ul');
+  ul.classList.add('hidden', 'md:flex', 'gap-4');
+
+  const burgerMenu = document.createElement('i');
+  burgerMenu.classList.add(
+    'fa-solid',
+    'fa-bars',
+    'fa-lg',
+    'text-white',
+    'md:hidden'
+  );
+  burgerMenu.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+
+    if (burgerMenu.classList.contains('fa-bars')) {
+      burgerMenu.classList.replace('fa-bars', 'fa-xmark');
+    } else {
+      burgerMenu.classList.replace('fa-xmark', 'fa-bars');
+    }
+  });
+
+  const dropdownMenu = createDivElement({
+    className: [
+      'absolute',
+      'hidden',
+      'top-12',
+      'left-0',
+      'w-full',
+      'bg-purpleDark',
+      'text-white',
+      'py-12',
+      'font-sans',
+      'font-semibold',
+      'text-base',
+      'flex',
+      'flex-col',
+      'items-center',
+      'h-screen',
+      'gap-4',
+    ],
+  });
 
   const home = createElementHref({
     href: '/',
@@ -62,7 +113,17 @@ export function buildNavBar() {
   });
   registerButton.style.display = DISPLAY_NONE;
 
+  burgerMenu.append(dropdownMenu);
+
+  dropdownMenu.append(
+    home.cloneNode(true),
+    create.cloneNode(true),
+    profile.cloneNode(true),
+    loginButton.cloneNode(true),
+    logoutButton.cloneNode(true),
+    registerButton.cloneNode(true)
+  );
   ul.append(home, create, profile, logoutButton, loginButton, registerButton);
-  nav.append(logo, ul);
+  nav.append(logo, ul, burgerMenu);
   header.append(nav);
 }
