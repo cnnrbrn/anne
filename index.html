@@ -12,15 +12,15 @@
   <title>Home - CSS frameworks CA</title>
 </head>
 
-<body class="text-white bg-purpleDark">
+<body class="text-white bg-purpleDark flex flex-col items-center">
 
   <header class="bg-purpleLight md:h-20 h-12 flex flex-col justify-center items-center px-4 md:px-8 w-full"></header>
 
-  <h1>Home</h1>
+  <h1 class="my-10">Home</h1>
 
   <span class="loader" id="loader"></span>
 
-  <div id="posts"></div>
+  <div id="posts" class="max-w-7xl grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mx-4 md:mx-8 "></div>
 
   <div class="pagination">
     <button class="btn" id="paginationFirstPage">First Page</button>
