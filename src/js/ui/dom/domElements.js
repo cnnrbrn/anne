@@ -18,13 +18,16 @@ export function createImageElement({
   return elementImage;
 }
 
-export function createDivElement({ className = [], id = '' }) {
+export function createDivElement({ className = [], id = '', textContent }) {
   const elementDiv = document.createElement('div');
   if (className.length) {
     elementDiv.classList.add(...className);
   }
   if (id) {
     elementDiv.id = id;
+  }
+  if (textContent) {
+    elementDiv.textContent = textContent;
   }
   return elementDiv;
 }
