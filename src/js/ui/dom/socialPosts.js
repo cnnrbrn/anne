@@ -112,7 +112,13 @@ export function buildSocialPostsCards(postData) {
   });
 
   const postText = createElementParagraph({
-    className: ['pt-2', 'px-4'],
+    className: [
+      'pt-2',
+      'px-4',
+      'overflow-hidden',
+      'line-clamp-1',
+      'md:line-clamp-3',
+    ],
     textContent: postData.body,
   });
 
