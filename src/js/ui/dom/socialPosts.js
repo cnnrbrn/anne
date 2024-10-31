@@ -86,7 +86,7 @@ export function buildSocialPostsCards(postData) {
   });
 
   const userIcon = createDivElement({
-    className: ['fa-solid', 'fa-user', 'flex', 'gap-2', 'pt-2', 'px-4'],
+    className: ['fa-solid', 'fa-user', 'flex', 'gap-2', 'pb-2'],
   });
 
   const userName = document.createElement('span');
