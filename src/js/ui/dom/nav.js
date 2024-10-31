@@ -74,24 +74,41 @@ export function buildNavBar() {
     ],
   });
 
+  const currentPage = window.location.pathname;
+  const getPageClasses = (path) => {
+    return currentPage === path ? ['border-b-2', 'border-white'] : [];
+  };
+
   const home = createElementHref({
     href: '/',
     textContent: 'Home',
-    className: ['md:hover:text-purpleDark'],
+    className: [
+      'md:hover:text-purpleDark',
+      'md:hover:border-purpleDark',
+      ...getPageClasses('/'),
+    ],
   });
   home.style.display = DISPLAY_BLOCK;
 
   const create = createElementHref({
     href: '/post/create/',
     textContent: 'Create Post',
-    className: ['md:hover:text-purpleDark'],
+    className: [
+      'md:hover:text-purpleDark',
+      'md:hover:border-purpleDark',
+      ...getPageClasses('/post/create/'),
+    ],
   });
   create.style.display = DISPLAY_BLOCK;
 
   const profile = createElementHref({
     href: '/profile/',
     textContent: 'Profile',
-    className: ['md:hover:text-purpleDark'],
+    className: [
+      'md:hover:text-purpleDark',
+      'md:hover:border-purpleDark',
+      ...getPageClasses('/profile/'),
+    ],
   });
   profile.style.display = DISPLAY_BLOCK;
 
