@@ -6,6 +6,21 @@ import {
   createElementButton,
 } from './domElements';
 
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 export function buildSocialPostsCards(postData) {
   const postCard = createDivElement({
     className: ['post-card'],
@@ -51,6 +66,18 @@ export function buildSocialPostsCards(postData) {
   const userName = document.createElement('span');
   userName.textContent = postData.author.name;
   userName.classList.add('font-sans', 'text-sm', 'font-light');
+
+  const postDate = createElementParagraph({
+    textContent: ' ',
+    className: ['text-sm', 'font-light'],
+  });
+
+  const formattedDate = new Date(postData.created);
+  const dateSpanElement = document.createElement('span');
+  dateSpanElement.textContent = `
+    ${formattedDate.getDate()}
+    ${months[formattedDate.getMonth()]}
+    ${formattedDate.getFullYear()}`;
 
   const postTitle = createHeadingElement({
     className: ['text-xl', 'font-bold', 'pt-2', 'px-4'],
