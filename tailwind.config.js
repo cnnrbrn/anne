@@ -7,6 +7,7 @@ export default {
         purpleDark: '#150516',
         purpleLight: '#311C36',
         white: '#d9d9d9',
+        whiteFaded: 'rgba(217, 217, 217, 0.25)',
       },
       dropShadow: {
         white: '0 5px 10px rgba(217, 217, 217, 15)',
