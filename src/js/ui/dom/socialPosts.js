@@ -142,9 +142,17 @@ export function buildSocialPostsCards(postData) {
   commentsCount.textContent = postData._count.comments || '';
   commentsCount.classList.add('font-sans', 'font-light');
 
-  userIcon.appendChild(userName);
+  reactEmoji.appendChild(reactCount);
   commentsIcon.appendChild(commentsCount);
-  textContainer.append(userIcon, postTitle, postText, commentsIcon);
+
+  postDate.appendChild(dateSpanElement);
+  userIcon.appendChild(userName);
+
+  userDateContainer.append(userIcon, postDate);
+  userDateTitleContainer.append(userDateContainer, postTitle);
+  reactCommentContainer.append(reactEmoji, commentsIcon);
+
+  textContainer.append(userDateTitleContainer, postText, reactCommentContainer);
   contentContainer.append(imageContainer, textContainer);
   postCard.append(contentContainer);
 
