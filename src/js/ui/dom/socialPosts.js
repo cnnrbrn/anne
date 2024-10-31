@@ -126,6 +126,13 @@ export function buildSocialPostsCards(postData) {
     className: ['flex', 'justify-between', 'items-center', 'px-4'],
   });
 
+  const reactEmoji = createElementButton({
+    textContent: '👍',
+  });
+
+  const reactCount = document.createElement('span');
+  reactCount.textContent = postData._count.reactions || '';
+
   const commentsIcon = createDivElement({
     id: 'commentsContainer',
     className: ['fa-solid', 'fa-comment', 'flex', 'gap-2', 'pt-2', 'px-4'],
