@@ -24,6 +24,7 @@ const months = [
 export function buildSocialPostsCards(postData) {
   const postCard = createDivElement({
     className: ['post-card'],
+    id: postData.id,
   });
 
   const contentContainer = createDivElement({
