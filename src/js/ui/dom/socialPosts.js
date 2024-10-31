@@ -122,6 +122,10 @@ export function buildSocialPostsCards(postData) {
     textContent: postData.body,
   });
 
+  const reactCommentContainer = createDivElement({
+    className: ['flex', 'justify-between', 'items-center', 'px-4'],
+  });
+
   const commentsIcon = createDivElement({
     id: 'commentsContainer',
     className: ['fa-solid', 'fa-comment', 'flex', 'gap-2', 'pt-2', 'px-4'],
