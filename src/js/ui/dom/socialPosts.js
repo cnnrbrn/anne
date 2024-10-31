@@ -3,6 +3,7 @@ import {
   createImageElement,
   createHeadingElement,
   createElementParagraph,
+  createElementButton,
 } from './domElements';
 
 export function buildSocialPostsCards(postData) {
