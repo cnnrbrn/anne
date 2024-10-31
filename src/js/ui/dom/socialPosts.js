@@ -139,8 +139,8 @@ export function buildSocialPostsCards(postData) {
   });
 
   const commentsCount = document.createElement('span');
-  commentsCount.textContent = postData._count.comments;
-  commentsCount.classList.add('font-sans', 'font-xs');
+  commentsCount.textContent = postData._count.comments || '';
+  commentsCount.classList.add('font-sans', 'font-light');
 
   userIcon.appendChild(userName);
   commentsIcon.appendChild(commentsCount);
