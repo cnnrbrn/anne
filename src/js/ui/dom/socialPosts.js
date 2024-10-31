@@ -57,7 +57,17 @@ export function buildSocialPostsCards(postData) {
   }
 
   const textContainer = createDivElement({
-    className: ['bg-purpleLight', 'py-4'],
+    className: [
+      'bg-purpleLight',
+      'py-4',
+      'flex',
+      'flex-col',
+      'justify-between',
+      'max-h-40',
+      'md:max-h-44',
+      'lg:max-h-52',
+      'h-full',
+    ],
     id: 'cardTextContainer',
   });
 
