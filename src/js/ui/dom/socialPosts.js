@@ -135,7 +135,7 @@ export function buildSocialPostsCards(postData) {
 
   const commentsIcon = createDivElement({
     id: 'commentsContainer',
-    className: ['fa-solid', 'fa-comment', 'flex', 'gap-2', 'pt-2', 'px-4'],
+    className: ['fa-solid', 'fa-comment', 'flex', 'gap-2'],
   });
 
   const commentsCount = document.createElement('span');
