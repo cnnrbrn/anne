@@ -71,6 +71,10 @@ export function buildSocialPostsCards(postData) {
     id: 'cardTextContainer',
   });
 
+  const userDateTitleContainer = createDivElement({
+    className: ['flex', 'flex-col', 'gap-1'],
+  });
+
   const userIcon = createDivElement({
     className: ['fa-solid', 'fa-user', 'flex', 'gap-2', 'pt-2', 'px-4'],
   });
