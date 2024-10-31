@@ -123,7 +123,7 @@ export function buildSocialPostsCards(postData) {
   });
 
   const reactCommentContainer = createDivElement({
-    className: ['flex', 'justify-between', 'items-center', 'px-4'],
+    className: ['flex', 'justify-between', 'items-center', 'mx-4', 'pt-2'],
   });
 
   const reactEmoji = createElementButton({
