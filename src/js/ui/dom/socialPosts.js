@@ -38,6 +38,7 @@ export function buildSocialPostsCards(postData) {
       'sm:h-80',
       'cursor-pointer',
       'hover:drop-shadow-white',
+      'overflow-hidden',
     ],
   });
   imageContainer.addEventListener('click', () => {
