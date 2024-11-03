@@ -22,14 +22,20 @@
 
   <div id="posts" class="max-w-7xl grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mx-4 md:mx-8 "></div>
 
-  <div class="pagination">
-    <button class="btn" id="paginationFirstPage">First Page</button>
-    <button class="btn" id="paginationBack">Back</button>
-    <button class="btn" id="paginationNext">Next</button>
-    <button class="btn" id="paginationLastPage">Last Page</button>
+  <div class="pagination flex max-w-72 w-full justify-between mt-10 gap-3">
+    <div class="flex justify-between w-1/2">
+      <button class="btn bg-purpleLight py-2 px-3 rounded-full whitespace-nowrap text-xs hover:bg-white hover:text-purpleDark" id="paginationFirstPage">First Page</button>
+      <button class="btn bg-purpleLight py-2 px-3 rounded-full whitespace-nowrap text-xs hover:bg-white hover:text-purpleDark" id="paginationBack">Back</button>
+    </div>
+    <div class="flex justify-between w-1/2">
+      <button class="btn bg-purpleLight py-2 px-3 rounded-full whitespace-nowrap text-xs hover:bg-white hover:text-purpleDark" id="paginationNext">Next</button>
+      <button class="btn bg-purpleLight py-2 px-3 rounded-full whitespace-nowrap text-xs hover:bg-white hover:text-purpleDark" id="paginationLastPage">Last Page</button>
+    </div>
   </div>
   
-  <div id="pageInfo"></div>
+  <div class="text-xs mt-3" id="pageInfo"></div>
+
+  <footer class="bg-purpleLight h-16 w-full mt-10"></footer>
 
 </body>
 </html>
