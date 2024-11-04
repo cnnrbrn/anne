@@ -1,6 +1,7 @@
 import { setLogoutListener } from '../../ui/global/logout';
 import { authGuard } from '../../utilities/authGuard';
 import { buildNavBar } from '../../ui/dom/nav';
+import { mobileFooter } from '../../ui/dom/footer';
 import { loadPosts } from '../../utilities/pagination';
 
 /**
@@ -24,6 +25,7 @@ async function loadHomePage() {
   await loadPosts();
   buildNavBar();
   setLogoutListener();
+  mobileFooter();
 }
 
 loadHomePage();
