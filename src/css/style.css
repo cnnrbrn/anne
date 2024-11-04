@@ -4,3 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn-lightPurple {
+  @apply bg-purpleLight hover:bg-white hover:text-purpleDark text-white  py-2 px-4 rounded-full;
+}
+
+.btn-darkPurple {
+  @apply bg-purpleDark hover:bg-white hover:text-purpleDark text-white  py-2 px-4 rounded-full;
+}
+
