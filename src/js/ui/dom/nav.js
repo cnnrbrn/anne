@@ -16,7 +16,7 @@ export function buildNavBar() {
     'items-center',
     'max-w-7xl',
     'w-full',
-    'text-lg',
+    'text-base',
     'font-semibold'
   );
 
