@@ -76,7 +76,7 @@ export function buildNavBar() {
 
   const currentPage = window.location.pathname;
   const getPageClasses = (path) => {
-    return currentPage === path ? ['border-b-2', 'border-white'] : [];
+    return currentPage === path ? ['drop-shadow-white'] : [];
   };
 
   const home = createElementHref({
