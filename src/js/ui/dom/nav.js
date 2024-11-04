@@ -131,6 +131,14 @@ export function buildNavBar() {
   });
   logoutButton.style.display = DISPLAY_BLOCK;
 
+  const mobileLogoutButton = createElementButton({
+    id: 'mobileLogoutButton',
+    className: 'nav-btn',
+    textContent: 'Logout',
+    className: ['md:hover:text-purpleDark'],
+  });
+  mobileLogoutButton.style.display = DISPLAY_BLOCK;
+
   const registerButton = createElementButton({
     id: 'registerButton',
     className: 'nav-btn',
@@ -149,7 +157,7 @@ export function buildNavBar() {
     create.cloneNode(true),
     profile.cloneNode(true),
     loginButton.cloneNode(true),
-    logoutButton.cloneNode(true),
+    mobileLogoutButton,
     registerButton.cloneNode(true)
   );
   ul.append(home, create, profile, logoutButton, loginButton, registerButton);
