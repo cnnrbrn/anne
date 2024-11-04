@@ -10,39 +10,42 @@
     <title>Create Post - CSS frameworks CA</title>
 
   </head>
-  <body class="text-white bg-purpleDark">
+  <body class="text-white bg-purpleDark w-screen">
     <header class="bg-purpleLight md:h-20 h-12 flex flex-col justify-center items-center px-4 md:px-8 w-full"></header>
     <h1>Create Post</h1>
     
-    <a href="/">HOME</a>
-
-    <form name="createPost" class="createPost">
-      <div>
-        <label for="postTitle">Title</label>
-        <input type="text" name="postTitle" id="postTitle" required/>
+    <form name="createPost" class="createPost flex flex-col items-center w-screen gap-3">
+      <div class="flex flex-col max-w-sm w-full ">
+        <label class="mx-4" for="postTitle">Title *</label>
+        <input class="rounded h-10 mx-4 px-2 text-purpleDark placeholder:text-sm" type="text" name="postTitle" id="postTitle" placeholder="Title of post" required/>
       </div>
 
-      <div>
-        <label for="postText">Story</label>
-        <textarea name="postText" id="postText"></textarea>
+      <div class="flex flex-col max-w-sm w-full ">
+        <label class="mx-4" for="postText">Story</label>
+        <textarea class="rounded h-32 mx-4 px-2 py-2 text-purpleDark placeholder:text-sm" name="postText" id="postText" placeholder="Write a text for the post"></textarea>
       </div>
 
-      <div>
-        <label for="tags">Tags (separate with comma)</label>
-        <input type="text" name="tags" id="tags"/>
+      <div class="flex flex-col max-w-sm w-full ">
+        <label class="mx-4" for="tags">Tags (separate with comma)</label>
+        <input class="rounded h-10 mx-4 px-2 text-purpleDark placeholder:text-sm" type="text" name="tags" id="tags" placeholder="Example: tag1, tag2, tag3"/>
       </div>
 
-      <div>
-        <label for="imageUrl">Image Url</label>
-        <input type="url" name="image" id="imageUrl"/>
+      <div class="flex flex-col max-w-sm w-full ">
+        <label class="mx-4" for="imageUrl">Image Url *</label>
+        <input class="rounded h-10 mx-4 px-2 text-purpleDark placeholder:text-sm" type="url" name="image" id="imageUrl" placeholder="Add an image url" required/>
       </div>
 
-      <div>
-        <label for="imageAlt">Image description</label>
-        <input type="text" name="alt" id="imageAlt"/>
+      <div class="flex flex-col max-w-sm w-full ">
+        <label class="mx-4" for="imageAlt">Image description</label>
+        <input class="rounded h-10 mx-4 px-2 text-purpleDark placeholder:text-sm" type="text" name="alt" id="imageAlt" placeholder="Short description of the image"/>
       </div>
 
-      <button>Create Post</button>
+      <p class="flex">Required fields marked with *</p>
+
+      <button class="btn-primary mt-5">Create Post</button>
     </form>
+
+  <footer class="bg-purpleLight h-16 w-full mt-10 absolute bottom-0"></footer>
+
   </body>
 </html>
