@@ -71,31 +71,50 @@ export function buildSocialPostsCards(postData) {
     id: 'cardTextContainer',
   });
 
-  const userDateTitleContainer = createDivElement({
+  const authorDateTitleContainer = createDivElement({
     className: ['flex', 'flex-col', 'gap-1'],
   });
 
-  const userDateContainer = createDivElement({
+  const authorDateContainer = createDivElement({
     className: [
       'flex',
       'justify-between',
       'border-b',
       'border-whiteFaded',
       'mx-4',
+      'pb-2',
     ],
   });
 
-  const userIcon = createDivElement({
-    className: ['fa-solid', 'fa-user', 'flex', 'gap-2', 'pb-2'],
+  const authorContainer = createDivElement({
+    className: ['flex', 'gap-2', 'items-center'],
   });
 
-  const userName = document.createElement('span');
-  userName.textContent = postData.author.name;
-  userName.classList.add('font-sans', 'text-sm', 'font-light');
+  const avatarImageContainer = createDivElement({
+    className: [
+      'max-h-6',
+      'max-w-6',
+      'rounded-full',
+      'overflow-hidden',
+      'flex',
+      'flex-center',
+      'items-center',
+    ],
+  });
+
+  const authorAvatar = createImageElement({
+    src: postData.author.avatar.url,
+    alt: postData.author.avatar.alt,
+    // className: ['max-h-full'],
+  });
+
+  const authorName = document.createElement('span');
+  authorName.textContent = postData.author.name;
+  authorName.classList.add('font-sans', 'text-sm', 'font-light');
 
   const postDate = createElementParagraph({
     textContent: ' ',
-    className: ['text-sm', 'font-light'],
+    className: ['flex', 'text-sm', 'font-light', 'items-center'],
   });
 
   const formattedDate = new Date(postData.created);
@@ -146,13 +165,18 @@ export function buildSocialPostsCards(postData) {
   commentsIcon.appendChild(commentsCount);
 
   postDate.appendChild(dateSpanElement);
-  userIcon.appendChild(userName);
+  avatarImageContainer.append(authorAvatar);
+  authorContainer.append(avatarImageContainer, authorName);
 
-  userDateContainer.append(userIcon, postDate);
-  userDateTitleContainer.append(userDateContainer, postTitle);
+  authorDateContainer.append(authorContainer, postDate);
+  authorDateTitleContainer.append(authorDateContainer, postTitle);
   reactCommentContainer.append(reactEmoji, commentsIcon);
 
-  textContainer.append(userDateTitleContainer, postText, reactCommentContainer);
+  textContainer.append(
+    authorDateTitleContainer,
+    postText,
+    reactCommentContainer
+  );
   contentContainer.append(imageContainer, textContainer);
   postCard.append(contentContainer);
 
