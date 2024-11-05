@@ -60,7 +60,7 @@ export function createElementParagraph({
     elementParagraph.classList.add(...className);
   }
   if (textContent) {
-    elementParagraph.textContent = textContent;
+    elementParagraph.textContent = capitalizeLetters(textContent);
   }
   return elementParagraph;
 }
@@ -93,4 +93,17 @@ export function createElementButton({ id = '', className = [], textContent }) {
     elementButton.textContent = textContent;
   }
   return elementButton;
+}
+
+function capitalizeLetters(text) {
+  if (!text) return text;
+
+  text = text.charAt(0).toUpperCase() + text.slice(1);
+
+  text = text.replace(
+    /([.!?])\s*([a-z])/g,
+    (match, punctuation, letter) => `${punctuation} ${letter.toUpperCase()}`
+  );
+
+  return text;
 }
