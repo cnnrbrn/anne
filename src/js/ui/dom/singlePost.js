@@ -12,12 +12,20 @@ import {
 
 export function buildSinglePost(postData) {
   const renderPost = document.getElementById('post');
-  const imageContainer = createDivElement({
-    className: 'single-image-container',
-  });
 
-  const textContainer = createDivElement({
-    className: 'single-text-container',
+  const postTitleHeading = document.getElementById('postTitle');
+  postTitleHeading.textContent = postData.title;
+
+  const imageContainer = createDivElement({
+    className: [
+      'max-h-[400px]',
+      'md:max-h-[800px]',
+      'overflow-hidden',
+      'flex',
+      'flex-center',
+      'items-center',
+      'w-full',
+    ],
   });
 
   const postImage =
@@ -25,49 +33,67 @@ export function buildSinglePost(postData) {
       ? createImageElement({
           src: postData.media.url,
           alt: postData.media.alt,
+          className: 'h-full',
         })
       : null;
 
   if (postImage) {
-    imageContainer.appendChild(postImage); // Only append if an image exists
+    imageContainer.appendChild(postImage);
   }
 
+  const textContainer = createDivElement({
+    className: ['max-w-full', 'w-full'],
+  });
+
+  const textInnerContainer = createDivElement({
+    className: ['flex', 'flex-col', 'gap-5', 'items-center', 'mx-4'],
+  });
+
   const postTitle = createHeadingElement({
-    className: 'singlePost-heading',
-    HTMLElement: 'h2',
+    className: ['w-full', 'text-xl', 'max-w-[800px]'],
+    htmlElement: 'h2',
     textContent: postData.title,
   });
 
+  const textAuthorContainer = createDivElement({
+    className: ['max-w-[800px]'],
+  });
+
   const postText = createElementParagraph({
-    className: 'singlePost-text',
+    className: [
+      'text-base',
+      'md:text-lg',
+      'border-b',
+      'border-whiteFaded',
+      'pb-2',
+    ],
     textContent: postData.body,
+  });
+  const postAuthor = createElementParagraph({
+    textContent: 'Post by: ' + postData.author.name,
+    className: ['w-full', 'italic', 'pt-2', 'text-xs'],
   });
 
   const postTags = createElementParagraph({
     textContent: formatTags(postData.tags),
   });
 
-  const postAuthor = createElementParagraph({
-    textContent: 'Post by: ' + postData.author.name,
-  });
-
   const buttonContainer = createDivElement({
-    className: 'singlePostButtons',
+    className: ['flex', 'gap-5', 'w-full', 'justify-between', 'md:justify-end'],
   });
 
   const deleteButton = createElementButton({
     id: 'deletePostButton',
-    className: 'btn',
+    className: ['btn', 'btn-delete'],
     textContent: 'Delete Post',
   });
-
   deleteButton.addEventListener('click', () => onDeletePost());
   deleteButton.style.display =
     userData.name === postData.author.name ? 'block' : 'none';
 
   const editButton = createElementButton({
     id: 'editPostButton',
-    className: 'btn',
+    className: ['btn-lightPurple'],
     textContent: 'Edit Post',
   });
   editButton.style.display =
@@ -78,17 +104,20 @@ export function buildSinglePost(postData) {
 
   const commentsContainer = createElementParagraph({
     id: 'commentsContainer',
+    className: ['flex', 'flex-col', 'gap-5', 'max-w-[800px]', 'w-full'],
   });
 
   buttonContainer.append(editButton, deleteButton);
-  textContainer.append(
+  textInnerContainer.append(
+    buttonContainer,
     postTitle,
-    postText,
+    textAuthorContainer,
     postTags,
-    postAuthor,
     commentsContainer
   );
-  renderPost.append(imageContainer, textContainer, buttonContainer);
+  textAuthorContainer.append(postText, postAuthor);
+  textContainer.append(textInnerContainer);
+  renderPost.append(imageContainer, textContainer);
   renderComments(postData.comments);
 
   return renderPost;
