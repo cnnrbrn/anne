@@ -3,8 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   appType: 'mpa',
-  base: process.env.NODE_ENV === 'production' ? '/fed2-js2-ca/' : '/',
-
+  base: process.env.NODE_ENV === 'production' ? '/fed2-js2-ca/annechh' : '/',
   build: {
     target: 'esnext',
     rollupOptions: {
